@@ -1,0 +1,161 @@
+<head>
+  <title>letsgetphysical</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css" >
+<script src="js/main.js"></script>
+</head>
+
+<body>
+
+  {{> header}}
+
+{{> newmodel}}
+
+{{> search}}
+
+{{> models}}
+
+{{> cta}}
+
+{{> footer}}
+
+</body>
+
+<template name="header">
+  <div class="menu" id="menu">
+  <img class="logo" src="img/logoblue-trans.png">
+    <h2>- Where digital meets<br/>physical</h2><a onClick="showMobileMenu()" class="mobileMenuIcon"></a>
+
+  <nav class="mainMenu" id="mainMenu">
+    <a href="/">Home</a>
+    <a href="upload">Share/Sell</a>
+    <a href="3dmodels">3D-Models</a>
+    <a href="designers">Designers</a>
+    <a href="login">Login/Register</a>
+  </nav>
+  </div>
+</template>
+
+<template name="newmodel">
+  <form class="new-model">
+        <input type="text" name="name" placeholder="Type to add new model" />
+        <input type="file" name="images" id="modelimage">
+        <textarea name="description">
+        </textarea>
+        <label for="category">Choose category</label>
+        <select name="category">
+          <option>Art</option>
+          <option>Brands</option>
+          <option>Fashion</option>
+          <option>Gadgets</option>
+          <option>Handcrafted</option>
+        </select>
+        <input type="submit" value="submit">
+    </form>
+</template>
+
+<template name="search">
+  <div class="login">
+    {{> loginButtons}}
+  </div>
+  <div class="searchSplash">
+    <div class="container">
+      <h2>FIND 3D-PRINTABLE MODELS</h2>
+      <input type="search" name="mainSearch" class="mainSearchInput">
+      <input type="submit" name="searchButton" class="searchButton" value="Search">
+    </div>
+
+  </div>
+</template>
+
+<template name="models">
+  <div class="featuredModels">
+    {{#each modelpictures}}
+      <img src="{{this.url}}">
+    {{/each}}
+    <div class="container">
+      <h2>TOP 3 WEEKLY MODELS<a href="#" class=""> BY LIKES</a></h2>
+      <ul>
+        {{#each model}}
+        <li>
+          <h3>{{name}}</h3>
+          <img src="{{modelimage _id}}" class="mainModelPicture">
+          <h4>Description:</h4>
+          <p class="description">
+            {{shortendesc(description)}}
+          </p>
+          <a href="#">Buy</a>
+          <a href="#">Download</a>
+        </li>
+        {{/each}}
+
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template name="cta">
+  <div class="mainCTA">
+    <div class="mainBack">
+        <h2>Share your model today!</h2>
+      <div class="partA">
+        <ul class="ctaText">
+          <li><img src="img/mini-ikon-1.png"><p>Earn money of idle models</p></li>
+          <li><img src="img/mini-ikon-2.png"><p>Share and retain your rights</p></li>
+          <li><img src="img/mini-ikon-3.png"><p>Promote your designs</p></li>
+        </ul>
+      </div>
+      <div class="partB">
+        <img src="img/model-house.png">
+        <input id="fileupload" class="mainupload" type="file" name="files[]" multiple>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="latest">
+  <div class="Latest">
+    <div class="container">
+      <h2>The Latest 3D-Print</h2>
+      <p>We print each and every one of the free models that are uploaded.</p>
+      <img src="modell-bilde2.jpg">
+    </div>
+  </div>
+</template>
+
+<template name="footer">
+  <footer class="footer-2" role="contentinfo">
+    <div class="footer-logo">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+    </div>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Products</a></li>
+      </ul>
+
+      <div class="footer-secondary-links">
+        <ul>
+          <li><a href="#">Terms and Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+
+        <ul class="footer-social">
+          <li><a href="#">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png" alt="Facebook">
+            </a></li>
+          <li><a href="#">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
+          </a></li>
+          <li><a href="#">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/youtube-logo-circle.png" alt="YouTube">
+          </a></li>
+        </ul>
+      </div>
+  </footer>
+</template>
+
+
+<template name="browse">
+
+</template>
